@@ -39,7 +39,7 @@ function Content({ data }) {
 }
 
 function Character({ data }) {
-    return <div>动漫的特征是：{data.character}</div>
+    return <div>角色有：{data.character}</div>
 }
 
 function Quote({ data }) {
