@@ -5,9 +5,9 @@ const Oauth = (props) => {
   const {
     location: { hash },
   } = props;
-//   const accessToken = hash.split('#access_token=')[1];
-  const reg = /^#access_token=(.+)&token_type=Bearer&expires_in=31536000$/
-  const accessToken  = reg.exec(hash)[1]
+  const params = hash.split('#')[1].split('&')
+  const accessToken = params[0].split('=')[1]
+//   const expires_in = params[2].split('=')[1]
   
   var query = `
     query ($id: Int) { # Define which variables will be used in the query (id)
