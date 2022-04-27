@@ -11,12 +11,12 @@ const UseState = () => {
             <div>Choose a color and a pet</div>
             <select value={color} onChange={(e)=>setColor(e.target.value)}>
             {
-                colorList.map(item=><option value={item}>{item}</option>)
+                colorList.map(item=><option key={item} value={item}>{item}</option>)
             }
                 </select>            
                 <select value={animal} onChange={(e)=>setAnimal(e.target.value)}>
             {
-                animalList.map(item=><option value={item}>{item}</option>)
+                animalList.map(item=><option key={item} value={item}>{item}</option>)
             }
                 </select>       
             <div>You chose a {color} {animal}</div>

@@ -1,3 +1,5 @@
 import React from 'react'
 
-export default ()=> <div>Comments</div>
+const Comments =  ()=> <div>Comments</div>
+
+export default Comments

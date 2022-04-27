@@ -42,7 +42,7 @@ const UserReducer = () => {
         onChange={(e) => dispatch({ type: types.COLOR, value: e.target.value })}
       >
         {colorList.map((item) => (
-          <option value={item}>{item}</option>
+          <option key={item} value={item}>{item}</option>
         ))}
       </select>
       <select
@@ -52,7 +52,7 @@ const UserReducer = () => {
         }
       >
         {animalList.map((item) => (
-          <option value={item}>{item}</option>
+          <option key={item} value={item}>{item}</option>
         ))}
       </select>
       <div>

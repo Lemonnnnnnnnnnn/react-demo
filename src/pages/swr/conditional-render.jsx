@@ -17,8 +17,8 @@ const ConditionalRender = () => {
     const [shouldFetchData, setShouldFetchData] = useState(false)
 
     return (
-        <div>
-            <button onClick={() => setShouldFetchData(true)}>load data</button>
+        <div >
+            <button  onClick={() => setShouldFetchData(true)}>load data</button>
             <Content shouldFetchData={shouldFetchData} />
         </div>
     );

@@ -17,7 +17,7 @@ function LazyLoad() {
 
 
   return (
-    <div>
+    <div >
       <Tabs onTabSelect={setTab} />
       <Suspense fallback={<Glimmer />}>
         {tab === 'photos' ? <Photos /> : <Comments />}
