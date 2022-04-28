@@ -24,7 +24,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
-  ],
+, "src/pages/react18/suspense.tsx"  ],
   "exclude": [
     "node_modules"
   ]
