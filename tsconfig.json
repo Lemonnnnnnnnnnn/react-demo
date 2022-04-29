@@ -17,7 +17,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "experimentalDecorators" : true
   },
   "include": [
     "next-env.d.ts",
@@ -27,5 +28,5 @@
 , "src/pages/react18/suspense.tsx"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }
