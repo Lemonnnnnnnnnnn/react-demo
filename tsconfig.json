@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js"
-, "src/pages/react18/suspense.tsx"  ],
+, "src/pages/react18/suspense.tsx", "src/pages/recoil/index.jsx"  ],
   "exclude": [
     "node_modules"
   ],
