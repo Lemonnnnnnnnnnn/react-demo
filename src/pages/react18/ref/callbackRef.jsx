@@ -1,9 +1,9 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 
 function App() {
     const InputRef = useCallback((node) => {
         console.log(node)
-        // node.focus()
+        node.focus()
     }, [])
 
     return (
