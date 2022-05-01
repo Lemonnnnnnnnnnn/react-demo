@@ -1,5 +1,0 @@
-[swr](https://swr.bootcss.com/)
-[公用api](https://github.com/public-apis/public-apis)
-[animechan](https://animechan.vercel.app/guide)
-[anilist-api](https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/getting-started)
-[anilist](https://anilist.co)
