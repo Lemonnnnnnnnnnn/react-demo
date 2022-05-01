@@ -1,10 +1,9 @@
-import { atom, useRecoilState } from "recoil";
-import Wrapper from './wrapper'
+import { atom, useRecoilState , RecoilRoot } from "recoil";
 import React, { Component } from 'react';
 
 
 const fontSizeState = atom({
-  key: "fontSizeState",
+  key: "fontSizeState", // 必须是string
   default: 14,
 });
 
@@ -29,10 +28,10 @@ function Text() {
 class Atom extends Component {
     render() { 
         return (
-        <Wrapper>
+        <RecoilRoot>
             <FontButton />
             <Text />
-        </Wrapper>);
+        </RecoilRoot>);
     }
 }
  
