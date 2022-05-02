@@ -255,7 +255,7 @@ function handler(req, res) {
 
 // src/.umi/api/user.js
 var import_apiRoute = __toESM(require_apiRoute());
-var apiRoutes = [{ "path": "user", "id": "user", "file": "user.js", "absPath": "/user", "__content": "export default function handler(req, res) {\r\n  res.status(200).json({ id: req.query.id });\r\n}\r\n" }];
+var apiRoutes = [{ "path": "user", "id": "user", "file": "user.js", "absPath": "/user", "__content": "export default function handler(req, res) {\r\n  setTimeout(()=>{\r\n    res.status(200).json({ data: `hi,${req.query.id}` });\r\n  },1000)\r\n}\r\n" }];
 var user_default = async (req, res) => {
   const umiReq = new import_apiRoute.UmiApiRequest(req, apiRoutes);
   await umiReq.readBody();
