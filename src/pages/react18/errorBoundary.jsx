@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 
 class ErrorBoundary extends Component {
-  state = {};
+  state = {
+    hasError : false
+  };
   componentDidCatch(err, info) {
-    // console.log(err);
-    // console.log(info);
+    console.log(err);
+    console.log(info);
   }
 
   static getDerivedStateFromError(error){
-      console.log(error)
+      return {
+        hasError : true
+      }
   }
   render() {
+    if(this.state.hasError) return <div>There are something is wrong</div>    
     return <div>{this.props.children}</div>;
   }
 }
