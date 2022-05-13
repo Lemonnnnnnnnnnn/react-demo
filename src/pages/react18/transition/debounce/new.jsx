@@ -44,7 +44,7 @@ const Item = ({ searchKey, data }) => {
   if (searchKey === "") return <div>{data}</div>;
   if (data.indexOf(searchKey) !== -1) {
     for (let i = 0; i < 100; i++) {
-        console.log("模拟处理严重渲染问题");
+        console.log("模拟处理耗时问题");
     }
     return <div style={{ color: "red" }}>{data}</div>;
   } else {
