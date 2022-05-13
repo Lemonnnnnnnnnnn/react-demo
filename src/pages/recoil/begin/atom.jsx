@@ -1,4 +1,4 @@
-import { atom, useRecoilState , RecoilRoot } from "recoil";
+import { atom, useRecoilState , RecoilRoot , useRecoilValue } from "recoil";
 import React, { Component } from 'react';
 
 
@@ -8,7 +8,7 @@ const fontSizeState = atom({
 });
 
 function FontButton() {
-  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState); // 获取atom状态和修改方法
   return (
     <button
       onClick={() => setFontSize((size) => size + 1)}
@@ -20,7 +20,7 @@ function FontButton() {
 }
 
 function Text() {
-  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const fontSize = useRecoilValue(fontSizeState); // 如果我们不用修改atom状态，可以用useRecoilValue来替代useRecoilState
   return <p style={{ fontSize }}>This text will increase in size too.</p>;
 }
 
@@ -31,7 +31,7 @@ class Atom extends Component {
         <RecoilRoot>
             <FontButton />
             <Text />
-        </RecoilRoot>);
+        </RecoilRoot>)
     }
 }
  

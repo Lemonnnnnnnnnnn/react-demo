@@ -8,7 +8,7 @@ import React, { Component, Suspense } from "react";
 
 const idState = atom({
   key: "idState",
-  default: 12,
+  default: 1,
 });
 
 const messageState = selector({
@@ -21,7 +21,7 @@ const messageState = selector({
   },
 });
 
-function Input() {
+function UserInfo() {
   const message = useRecoilValue(messageState);
 
   return (
@@ -36,7 +36,7 @@ class Selector extends Component {
     return (
       <RecoilRoot>
         <Suspense fallback={<div>loading ...</div>}>
-          <Input />
+          <UserInfo />
         </Suspense>
       </RecoilRoot>
     );

@@ -250,7 +250,7 @@ var middlewares_default = async (req, res, next) => {
 function handler(req, res) {
   setTimeout(() => {
     res.status(200).json({ data: `hi,${req.query.id}` });
-  }, 1e3);
+  }, req.query.id * 1e3);
 }
 
 // src/.umi/api/user.js

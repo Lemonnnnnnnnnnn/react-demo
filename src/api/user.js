@@ -1,5 +1,5 @@
 export default function handler(req, res) {
   setTimeout(()=>{
     res.status(200).json({ data: `hi,${req.query.id}` });
-  },1000)
+  },req.query.id * 1000)
 }
