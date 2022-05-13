@@ -1,15 +1,13 @@
 import React from "react";
 
-class Suspense extends React.Component {
+class MySuspense extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
-  componentDidCatch(err, info) {
-    console.log(err);
-    console.log(info);
-  }
-  static getDerivedStateFromError() {
+  
+  static getDerivedStateFromError() { // 没有捕获到Promise错误，因为throw出的Promise会在React底层被内部的ComponentDidCatch捕获（非生命周期中的）
+    console.log('捕获错误！');
     return { hasError: true };
   }
   render() {
@@ -39,7 +37,9 @@ function createResource(url) {
   return {
     read() {
       if (status === "loading") {
-        throw suspender; // 抛出promise给Suspense
+        console.log('抛出promise被底层错误catcher捕获');
+        throw new Error(result)
+        throw suspender; 
       } else if (status === "error") {
         throw new Error(result); // 抛出错误
       } else {
@@ -52,15 +52,17 @@ function createResource(url) {
 const resource = createResource("https://api.waifu.im/random");
 
 const Content = () => {
+  console.log('进入Content渲染');
   const data = resource.read();
+  console.log('请求完成')
   return <img src={data.images[0].url} alt="" />;
 };
 
 function App() {
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <MySuspense fallback={<div>loading...</div>}>
       <Content />
-    </Suspense>
+    </MySuspense>
   );
 }
 
