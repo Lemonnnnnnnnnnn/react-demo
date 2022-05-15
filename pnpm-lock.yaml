@@ -12,6 +12,7 @@ specifiers:
   react-redux: ^8.0.1
   recoil: ^0.7.2
   redux: ^4.2.0
+  redux-thunk: ^2.4.1
   swr: ^1.3.0
   typescript: ^4.6.3
   umi: ^4.0.0-rc.14
@@ -23,6 +24,7 @@ dependencies:
   react-redux: 8.0.1_kjmifdxpnvnk65rvtfx6bplkja
   recoil: 0.7.2
   redux: 4.2.0
+  redux-thunk: 2.4.1_redux@4.2.0
   swr: 1.3.0
   umi: 4.0.0-rc.14_typescript@4.6.4
 
