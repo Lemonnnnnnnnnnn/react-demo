@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
 const imgSlice = createSlice({
     name: 'img',
     initialState: {
@@ -8,7 +9,6 @@ const imgSlice = createSlice({
     reducers: {
         // 把请求到的url地址放入state中
         getImg: (state, action) => { 
-            console.log(action);
             state.imgUrl = action.payload 
         }
     }

@@ -6,8 +6,9 @@ export const counterSlice = createSlice({
     value: 0
   },
   reducers: {
-    increment: state => { // 默认不带参
-      state.value += 1
+    increment: (state, { payload }) => { // 默认不带参
+      console.log(payload);
+      state.value += Number(payload || 1)
     },
   }
 })
