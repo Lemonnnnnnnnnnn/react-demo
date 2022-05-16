@@ -4,8 +4,12 @@ import { getImgAsync, getImgSelector } from './reducer-loadStatus'
 import { useSelector, useDispatch } from 'react-redux'
 
 function Img() {
-    const {imgUrl, status, fail} = useSelector(getImgSelector)
-    console.log(status);
+    // const {imgUrl, status, fail} = useSelector(getImgSelector)
+    const { imgUrl, status, fail } = useSelector(({ reducerLoadStatus }) => {
+
+        console.log(reducerLoadStatus);
+        return { imgUrl: reducerLoadStatus.imgUrl, status: reducerLoadStatus.status }
+    })
     const dispatch = useDispatch()
     const url = 'https://api.waifu.im/random'
 

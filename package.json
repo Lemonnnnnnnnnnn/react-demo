@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
+    "immer": "^9.0.14",
     "lodash": "^4.17.21",
     "next": "12.1.5",
     "react-redux": "^8.0.1",

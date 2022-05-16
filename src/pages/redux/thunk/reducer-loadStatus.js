@@ -9,7 +9,9 @@ const imgSlice = createSlice({
     },
     reducers: {
         getImg: (state, { payload }) => {
+            console.log(payload);
             state = payload
+            return state // immer
         }
     }
 })
