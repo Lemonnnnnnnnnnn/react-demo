@@ -1,39 +1,50 @@
-
-const list = [
-    { id: 1, done: true },
-    { id: 2, done: false },
-]
-
-// const newList = produce(list, (draft) => { })
-
-// const newList2 = produce(list, (draft) => {
-//     draft[1].done = true
-// })
-
-
-
-function produce(baseState, fn) {
-    // let scope = 
-    const proxy = createProxy(baseState)
-    const result = fn(proxy)
-
-    return result
-}
-
-// 初始化scope
-// set 修改 scope
+//#region createProxy
 function createProxy(base) {
-    const proxy = new Proxy(base,{
-        get(){
+    const state = {
+        modifyed: false,
+        copy: null,
+        base,
+    }
 
+    const handler = {
+        get(state, prop) {
+            return state[prop]
         },
-        set(){
-
+        set(state, prop, value) {
+            if (!state.modifyed) {
+                state.copy = Object.assign({}, state.base)  // 浅拷贝
+                state.copy[prop] = value // 修改复制品
+                state.modifyed = true
+            }
         }
-    })
+    }
+
+    const proxy = new Proxy(state, handler)
+
     return proxy
 }
+//#endregion createProxy
 
-function processResult(result, scope) {
+//#region produce
+function produce(baseState, fn) {
+    const proxy = createProxy(baseState)
+    fn(proxy)
 
+    if(proxy.modifyed) return proxy.copy
+    return proxy.base
 }
+
+const sample = {
+    foo: 'foo'
+}
+
+const res = produce(sample, (draft) => {
+    draft.foo = 'bar' // 进入proxy.set函数
+})
+
+const res2 = produce(sample, (draft) => {
+})
+
+console.log(res); // {foo : 'bar'}
+console.log(res2 === sample); // true
+//#endregion produce
