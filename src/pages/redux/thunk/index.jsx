@@ -1,15 +1,10 @@
 import store from "./store";
 import { Provider } from 'react-redux'
-import { getImgAsync, getImgSelector } from './reducer-loadStatus'
+import { getImgAsync, getImgSelector } from './reducer-createAsyncThunk'
 import { useSelector, useDispatch } from 'react-redux'
 
 function Img() {
-    // const {imgUrl, status, fail} = useSelector(getImgSelector)
-    const { imgUrl, status, fail } = useSelector(({ reducerLoadStatus }) => {
-
-        console.log(reducerLoadStatus);
-        return { imgUrl: reducerLoadStatus.imgUrl, status: reducerLoadStatus.status }
-    })
+    const {imgUrl, status, fail} = useSelector(getImgSelector)
     const dispatch = useDispatch()
     const url = 'https://api.waifu.im/random'
 

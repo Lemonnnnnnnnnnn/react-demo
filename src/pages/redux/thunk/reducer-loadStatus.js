@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const imgSlice = createSlice({
-    name: 'img-loadStatus',
+    name: 'img',
     initialState: {
         imgUrl: '',
         status: 'idle',
@@ -9,9 +9,7 @@ const imgSlice = createSlice({
     },
     reducers: {
         getImg: (state, { payload }) => {
-            console.log(payload);
-            state = payload
-            return state // immer
+            return payload 
         }
     }
 })
@@ -19,6 +17,7 @@ const imgSlice = createSlice({
 export const { getImg } = imgSlice.actions
 export default imgSlice.reducer
 
+//#region getImgAsync
 export const getImgAsync = (url) => (dispatch) => {
     dispatch(getImg({
         imgUrl: '',
@@ -42,6 +41,7 @@ export const getImgAsync = (url) => (dispatch) => {
             }))
         })
 }
+//#endregion getImgAsync
 
 export const getImgSelector = ({ reducerLoadStatus }) => {
     const { imgUrl, status, error } = reducerLoadStatus
