@@ -31,15 +31,17 @@ const Preload = () => {
         for (let i = 1; i <= page; i++) {
             list.push(
                 <>
-                    <Page page={page} />
-                    <Page page={page + 1} show={false} />
+                    <Page page={i} />
+                    <Page page={i + 1} show={false} />
                 </>
             )
         }
         return list.map(item => item)
     }
+
     return (
         <div>
+            
             {renderer()}
             <button onClick={() => setPage(page + 1)}>load more</button>
         </div>
